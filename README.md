@@ -19,4 +19,10 @@ Eg:
 - john-macgregor
   - bubbleSort
 
-This should give us a root repo directory, with a 2nd layer of personal directories, and within each of those everyone's implementation of each algorithm
+### 4 Write your code / make commits against your weekly branch
+
+### 5 When your implementation is finished, create a pull request against master
+
+### 6 We'll review all the code reviews as a group and merge them in as we go during the weekly meetup
+
+This should give us a root repo directory, with a 2nd layer of personal directories, and within each personal directory will be all their algorithm implementations
