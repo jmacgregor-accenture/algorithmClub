@@ -18,3 +18,5 @@ Follow the same convention as with the kata repo, eg "jmBubbleSort"
 Eg:
 - john-macgregor
   - bubbleSort
+
+This should give us a root repo directory, with a 2nd layer of personal directories, and within each of those everyone's implementation of each algorithm
