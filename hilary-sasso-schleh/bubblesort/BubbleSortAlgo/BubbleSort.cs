@@ -33,7 +33,7 @@ namespace BubbleSortAlg
                 {
                     var current = valueArray[i];
                     var next = valueArray[i + 1];
-                    if (current <= next) continue;
+                    if (Char.ToLower(current) <= Char.ToLower(next)) continue;
                     unsorted = true;
                     valueArray[i] = next;
                     valueArray[i + 1] = current;
