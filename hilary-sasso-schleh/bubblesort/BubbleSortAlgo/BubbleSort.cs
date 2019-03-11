@@ -4,7 +4,7 @@ namespace BubbleSortAlg
 {
     public class BubbleSort
     {
-        public int[] Sort(int[] valueArray)
+        public static int[] Sort(int[] valueArray)
         {
             var unsorted = true;
             while (unsorted)
@@ -23,7 +23,7 @@ namespace BubbleSortAlg
             return valueArray;
         }
         
-        public char[] Sort(char[] valueArray)
+        public static char[] Sort(char[] valueArray)
         {
             var unsorted = true;
             while (unsorted)
@@ -42,7 +42,7 @@ namespace BubbleSortAlg
             return valueArray;
         }
         
-        public string[] Sort(string[] valueArray)
+        public static string[] Sort(string[] valueArray)
         {
             var unsorted = true;
             while (unsorted)
@@ -52,7 +52,7 @@ namespace BubbleSortAlg
                 {
                     var current = valueArray[i];
                     var next = valueArray[i + 1];
-                    if (String.Compare(current, next) < 0) continue;
+                    if (string.Compare(current, next, StringComparison.CurrentCulture) < 0) continue;
                     unsorted = true;
                     valueArray[i] = next;
                     valueArray[i + 1] = current;

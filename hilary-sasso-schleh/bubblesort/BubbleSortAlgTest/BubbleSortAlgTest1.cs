@@ -9,11 +9,11 @@ namespace BubbleSortAlgTests
         [Fact]
         public void SortReturnsTwoIntegersOfArrayInAscendingOrder()
         {
-           BubbleSort bubblesort = new BubbleSort();
+      
            int[] numArray = {2, 1};
            int[] expected = {1, 2};
  
-           int[] result = bubblesort.Sort(numArray);
+           int[] result = BubbleSort.Sort(numArray);
          
            Assert.Equal(expected, result);
         }
@@ -21,11 +21,11 @@ namespace BubbleSortAlgTests
         [Fact]
         public void SortReturnsFiveIntegersInArrayInAscendingOrder()
         {
-            BubbleSort bubblesort = new BubbleSort();
+
             int[] numArray = {2, 1, 3, 5, 4};
             int[] expected = {1, 2, 3, 4, 5};
  
-            int[] result = bubblesort.Sort(numArray);
+            int[] result = BubbleSort.Sort(numArray);
          
             Assert.Equal(expected, result);
         }
@@ -33,11 +33,10 @@ namespace BubbleSortAlgTests
         [Fact]
         public void SortReturnsIntegersSortedInArrayWithRepeatedValues()
         {
-            BubbleSort bubblesort = new BubbleSort();
             int[] numArray = {3, 1, 3, 5, 3};
             int[] expected = {1, 3, 3, 3, 5};
  
-            int[] result = bubblesort.Sort(numArray);
+            int[] result = BubbleSort.Sort(numArray);
          
             Assert.Equal(expected, result);
         }
@@ -45,11 +44,11 @@ namespace BubbleSortAlgTests
         [Fact]
         public void SortReturnsCharactersInAlphabeticalOrder()
         {
-            BubbleSort bubblesort = new BubbleSort();
+
             char[] charArray = {'b', 'a', 'c', 'd', 'e'};
             char[] expected = {'a', 'b', 'c', 'd', 'e'};
  
-            char[] result = bubblesort.Sort(charArray);
+            char[] result = BubbleSort.Sort(charArray);
          
             Assert.Equal(expected, result);
         }
@@ -57,11 +56,11 @@ namespace BubbleSortAlgTests
         [Fact]
         public void SortReturnsStringsInAlphabeticalOrder()
         {
-            BubbleSort bubblesort = new BubbleSort();
-            String[] stringArray = {"bee", "aye", "cee", "dee", "eee"};
-            String[] expected = {"aye", "bee", "cee", "dee", "eee"};
+
+            string[] stringArray = {"bee", "aye", "cee", "dee", "eee"};
+            string[] expected = {"aye", "bee", "cee", "dee", "eee"};
  
-            String[] result = bubblesort.Sort(stringArray);
+            string[] result = BubbleSort.Sort(stringArray);
          
             Assert.Equal(expected, result);
         }
@@ -69,11 +68,11 @@ namespace BubbleSortAlgTests
         [Fact]
         public void SortReturnsCharactersInAlphabeticalOrderCaseInsensitive()
         {
-            BubbleSort bubblesort = new BubbleSort();
+
             char[] charArray = {'B', 'a', 'c', 'D', 'e'};
             char[] expected = {'a', 'B', 'c', 'D', 'e'};
  
-            char[] result = bubblesort.Sort(charArray);
+            char[] result = BubbleSort.Sort(charArray);
          
             Assert.Equal(expected, result);
         }
