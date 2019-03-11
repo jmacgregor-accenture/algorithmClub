@@ -17,18 +17,18 @@ namespace Sorter
 
         private int Sort(int[] arr)
         {
-            int localSwaps = 0;
+            int indexSwaps = 0;
 
             for (int i = 1; i < arr.Length; i++){
 
                 if (SwapSuccessful(arr, i))
                 {
-                    localSwaps++;
+                    indexSwaps++;
                 }
 
             }
 
-            return localSwaps;
+            return indexSwaps;
         }
 
         private static bool SwapSuccessful(int[] arr, int i)

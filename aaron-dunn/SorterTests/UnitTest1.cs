@@ -16,5 +16,17 @@ namespace Tests
             
             Assert.AreEqual(resultArr, sorter.BubbleSort(testArr));
         }
+
+        [Test]
+        public void WhenBubbleSortPassedArrayOfLength1ReturnsArray()
+        {
+            BubbleSorter sorter = new BubbleSorter();
+            int[] testArr = new int[1] { 1 };
+            int[] resultArr = new int[1] { 1 };
+            
+            Assert.AreEqual(resultArr, sorter.BubbleSort(testArr));
+
+
+        }
     }
 }
