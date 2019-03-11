@@ -21,6 +21,11 @@ namespace BubblySort
                 return HandleIntArray(itemsToSort);
             }
 
+            if (type == typeof(char))
+            {
+                return HandleIntArray(itemsToSort);
+            }
+
             return itemsToSort;
         }
 
