@@ -60,5 +60,16 @@ namespace BubblySort.Tests
             
             result.ShouldBe(expectedArray);
         }
+        
+        [Fact]
+        public void WhenCallingSortWithTwoLettersReturnsInCorrectOrder()
+        {
+            var bubbler = new Bubbler();
+            var expectedArray = new [] {'A','a'};
+
+            var result = bubbler.Sort('a','A');
+            
+            result.ShouldBe(expectedArray);
+        }
     }
 }

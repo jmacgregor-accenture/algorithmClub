@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.Linq;
 
 namespace BubblySort
@@ -12,14 +13,32 @@ namespace BubblySort
 
         private T[] HandleIntArray<T>(T[] paramArray)
         {
-            var typeTtoInt = new Converter<T,int>(input => (int)Convert.ChangeType(input, typeof(T)));
-            var intToTypeT = new Converter<int, T>(input => (T)Convert.ChangeType(input, typeof(T)));
-            
-            var intArray = Array.ConvertAll(paramArray,typeTtoInt);
+            var intArray = ConvertArrayToTypeT<int,T>(paramArray);
 
             var sortedArray = SortInts(intArray);
+
+            return ConvertArrayToTypeT<T,int>(sortedArray);
+        }
+
+        private T[] ConvertArrayToTypeT<T, TIn>(TIn[] arrayToConvert)
+        {
+            var converter = new Converter<TIn, T>(input => (T)Convert.ChangeType(input, typeof(T)));
+
+            return Array.ConvertAll(arrayToConvert, converter);
+        }
+
+        private int[] ConvertArrayToIntArray<T>(T[] paramArray)
+        {
+            var typeTtoInt = new Converter<T,int>(input => (int)Convert.ChangeType(input, typeof(T)));
             
-            return Array.ConvertAll(sortedArray,intToTypeT);
+            return Array.ConvertAll(paramArray,typeTtoInt);
+        }
+
+        private T[] ConvertIntArrayToType<T>(int[] arrayToConvert)
+        {
+            var intToTypeT = new Converter<int, T>(input => (T)Convert.ChangeType(input, typeof(T)));
+
+            return Array.ConvertAll(arrayToConvert, intToTypeT);
         }
 
         private int[] SortInts(int[] numbersToSort)
