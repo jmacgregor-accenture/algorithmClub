@@ -21,10 +21,8 @@ namespace Sorter
 
             for (int i = 1; i < arr.Length; i++){
 
-                if (arr[i] < arr[i - 1])
+                if (SwapSuccessful(arr, i))
                 {
-                    Swap(arr, i);
-
                     localSwaps++;
                 }
 
@@ -33,12 +31,19 @@ namespace Sorter
             return localSwaps;
         }
 
-        private static void Swap(int[] arr, int i)
+        private static bool SwapSuccessful(int[] arr, int i)
         {
-            int tempCurrentIndex = arr[i];
+            if (arr[i] < arr[i - 1])
+            {
+                int tempCurrentIndex = arr[i];
             
-            arr[i] = arr[i - 1];
-            arr[i - 1] = tempCurrentIndex;
+                arr[i] = arr[i - 1];
+                arr[i - 1] = tempCurrentIndex;
+
+                return true;
+            }
+
+            return false;
         }
     }
 }
