@@ -29,8 +29,29 @@ namespace BubbleSortAlgTests
          
             Assert.Equal(expected, result);
         }
+
+        [Fact]
+        public void SortReturnsIntegersSortedInArrayWithRepeatedValues()
+        {
+            BubbleSort bubblesort = new BubbleSort();
+            int[] numArray = {3, 1, 3, 5, 3};
+            int[] expected = {1, 3, 3, 3, 5};
+ 
+            int[] result = bubblesort.Sort(numArray);
+         
+            Assert.Equal(expected, result);
+        }
         
-        
-        
+        [Fact]
+        public void SortReturnsCharactersInAlphabeticalOrder()
+        {
+            BubbleSort bubblesort = new BubbleSort();
+            char[] charArray = {'b', 'a', 'c', 'd', 'e'};
+            char[] expected = {'a', 'b', 'c', 'd', 'e'};
+ 
+            char[] result = bubblesort.Sort(charArray);
+         
+            Assert.Equal(expected, result);
+        }
     }
 }
