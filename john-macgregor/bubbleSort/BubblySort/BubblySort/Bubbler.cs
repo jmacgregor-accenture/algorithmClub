@@ -12,36 +12,36 @@ namespace BubblySort
 
             if (type == typeof(string))
             {
-                return HandleStringArray(itemsToSort);
+                return HandleCompareSort(itemsToSort);
             }
 
             if (type == typeof(int))
             {
-                return HandleIntArray(itemsToSort);
+                return HandleGreaterThanSort(itemsToSort);
             }
 
             if (type == typeof(char))
             {
-                return HandleCharArray(itemsToSort);
+                return HandleGreaterThanSort(itemsToSort);
             }
 
             return itemsToSort;
         }
 
-        private T[] HandleIntArray<T>(T[] paramArray)
+        private T[] HandleGreaterThanSort<T>(T[] paramArray)
         {
             var intArray = ConvertArrayToTypeT<int,T>(paramArray);
 
-            var sortedArray = SortInts(intArray);
+            var sortedArray = GreaterThanSort(intArray);
 
             return ConvertArrayToTypeT<T,int>(sortedArray);
         }
         
-        private T[] HandleStringArray<T>(T[] paramArray)
+        private T[] HandleCompareSort<T>(T[] paramArray)
         {
             var stringArray = ConvertArrayToTypeT<string,T>(paramArray);
 
-            var sortedArray = SortStrings(stringArray);
+            var sortedArray = CompareSort(stringArray);
 
             return ConvertArrayToTypeT<T,string>(sortedArray);
         }
@@ -52,17 +52,8 @@ namespace BubblySort
 
             return Array.ConvertAll(arrayToConvert, converter);
         }
-        
-        private T[] HandleCharArray<T>(T[] paramArray)
-        {
-            var charArray = ConvertArrayToTypeT<char,T>(paramArray);
 
-            var sortedArray = SortChars(charArray);
-
-            return ConvertArrayToTypeT<T,char>(sortedArray);
-        }
-
-        private string[] SortStrings(string[] itemsToSort)
+        private string[] CompareSort(string[] itemsToSort)
         {
             var madeChange = false;
 
@@ -77,7 +68,8 @@ namespace BubblySort
                     var firstNumber = itemsToSort[pass];
                     var secondNumber = itemsToSort[comparisonNumber];
 
-                    var compareResult = string.Compare(firstNumber, secondNumber, StringComparison.InvariantCulture);
+                    var compareResult = string.Compare(firstNumber, secondNumber, 
+                        StringComparison.InvariantCulture);
 
                     if (compareResult > 0)
                     {
@@ -91,8 +83,8 @@ namespace BubblySort
             
             return itemsToSort;
         }
-        
-        private char[] SortChars(char[] itemsToSort)
+
+        private int[] GreaterThanSort(int[] itemsToSort)
         {
             var madeChange = false;
 
@@ -106,7 +98,7 @@ namespace BubblySort
                 
                     var firstNumber = itemsToSort[pass];
                     var secondNumber = itemsToSort[comparisonNumber];
-
+                    
                     if (firstNumber > secondNumber)
                     {
                         itemsToSort[pass] = secondNumber;
@@ -118,34 +110,6 @@ namespace BubblySort
             } while (madeChange);
             
             return itemsToSort;
-        }
-
-        private int[] SortInts(int[] numbersToSort)
-        {
-            var madeChange = false;
-
-            do
-            {
-                madeChange = false;
-                
-                for (var pass = 0; pass < numbersToSort.Length - 1; pass++)
-                {
-                    var comparisonNumber = pass + 1;
-                
-                    var firstNumber = numbersToSort[pass];
-                    var secondNumber = numbersToSort[comparisonNumber];
-
-                    if (firstNumber > secondNumber)
-                    {
-                        numbersToSort[pass] = secondNumber;
-                        numbersToSort[comparisonNumber] = firstNumber;
-                        madeChange = true;
-                    }
-                }
-                
-            } while (madeChange);
-            
-            return numbersToSort;
         }
     }
 }
