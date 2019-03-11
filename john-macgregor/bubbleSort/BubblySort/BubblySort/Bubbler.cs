@@ -15,8 +15,13 @@ namespace BubblySort
                 var array = new [] {"AAA", "BBB", "CCC"};
                 return ConvertArrayToTypeT<T,string>(array);
             }
-            
-            return HandleIntArray(itemsToSort);
+
+            if (type == typeof(int))
+            {
+                return HandleIntArray(itemsToSort);
+            }
+
+            return itemsToSort;
         }
 
         private T[] HandleIntArray<T>(T[] paramArray)
