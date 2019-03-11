@@ -71,5 +71,16 @@ namespace BubblySort.Tests
             
             result.ShouldBe(expectedArray);
         }
+
+        [Fact]
+        public void WhenCallingSortWithThreeStringsReturnsInCorrectOrder()
+        {
+            var bubbler = new Bubbler();
+            var expectedArray = new[] {"AAA", "BBB", "CCC"};
+
+            var result = bubbler.Sort("CCC", "AAA", "BBB");
+            
+            result.ShouldBe(expectedArray);
+        }
     }
 }
