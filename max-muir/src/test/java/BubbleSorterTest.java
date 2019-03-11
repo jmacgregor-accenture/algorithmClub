@@ -17,7 +17,7 @@ public class BubbleSorterTest {
 
     @Before
     public void setUp() throws Exception {
-        BubbleSorterTest.generateTestValues();
+        BubbleSorterTest.generateTestAndExpectedValues();
     }
 
     @Test
@@ -31,7 +31,7 @@ public class BubbleSorterTest {
     }
 
 
-    private static void generateTestValues(){
+    private static void generateTestAndExpectedValues(){
         List<Integer> randomValues = new ArrayList<>();
         int arrayLength = random.nextInt(100);
         for(int i = 0; i < arrayLength; i++){
@@ -43,6 +43,7 @@ public class BubbleSorterTest {
         for(int i = 0; i < expectedvalues.length; i++){
             expectedvalues[i] = testValues[i];
         }
+        Arrays.sort(expectedvalues);
 
     }
 }
