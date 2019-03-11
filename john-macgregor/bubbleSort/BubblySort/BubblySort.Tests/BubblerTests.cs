@@ -20,7 +20,12 @@ namespace BubblySort.Tests
         [Fact]
         public void WhenCallingSortWithTwoNumbersReturnsInCorrectOrder()
         {
+            var bubbler = new Bubbler();
+            var expectedArray = new int[] {5,7};
+
+            var result = bubbler.Sort(7, 5);
             
+            result.ShouldBe(expectedArray);
         }
     }
 }
