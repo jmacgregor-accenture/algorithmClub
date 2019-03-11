@@ -53,5 +53,29 @@ namespace BubbleSortAlgTests
          
             Assert.Equal(expected, result);
         }
+        
+        [Fact]
+        public void SortReturnsStringsInAlphabeticalOrder()
+        {
+            BubbleSort bubblesort = new BubbleSort();
+            String[] stringArray = {"bee", "aye", "cee", "dee", "eee"};
+            String[] expected = {"aye", "bee", "cee", "dee", "eee"};
+ 
+            String[] result = bubblesort.Sort(stringArray);
+         
+            Assert.Equal(expected, result);
+        }
+        
+        [Fact]
+        public void SortReturnsCharactersInAlphabeticalOrderCaseInsensitive()
+        {
+            BubbleSort bubblesort = new BubbleSort();
+            char[] charArray = {'B', 'a', 'c', 'D', 'e'};
+            char[] expected = {'a', 'B', 'c', 'D', 'e'};
+ 
+            char[] result = bubblesort.Sort(charArray);
+         
+            Assert.Equal(expected, result);
+        }
     }
 }
