@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BubblySort", "BubblySort\BubblySort.csproj", "{F26761E4-1D87-4E2E-9402-554BFB3F3A4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BubblySort.Tests", "BubblySort.Tests\BubblySort.Tests.csproj", "{1D223574-3892-4099-AA2D-924665563946}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F26761E4-1D87-4E2E-9402-554BFB3F3A4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F26761E4-1D87-4E2E-9402-554BFB3F3A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F26761E4-1D87-4E2E-9402-554BFB3F3A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F26761E4-1D87-4E2E-9402-554BFB3F3A4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D223574-3892-4099-AA2D-924665563946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D223574-3892-4099-AA2D-924665563946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D223574-3892-4099-AA2D-924665563946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D223574-3892-4099-AA2D-924665563946}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
