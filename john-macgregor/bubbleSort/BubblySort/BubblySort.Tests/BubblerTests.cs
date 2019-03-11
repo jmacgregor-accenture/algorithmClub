@@ -14,7 +14,13 @@ namespace BubblySort.Tests
 
             var result = bubbler.Sort(testArray);
 
-            result.ShouldBe(testArray);
+            result.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public void WhenCallingSortWithTwoNumbersReturnsInCorrectOrder()
+        {
+            
         }
     }
 }

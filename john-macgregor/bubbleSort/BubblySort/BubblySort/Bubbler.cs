@@ -2,9 +2,11 @@ namespace BubblySort
 {
     public class Bubbler
     {
-        public int[] Sort(int[] arrayToSort)
+        public int[] Sort(params int[] numbersToSort)
         {
-            return arrayToSort;
+            
+            
+            return numbersToSort;
         }
     }
 }
