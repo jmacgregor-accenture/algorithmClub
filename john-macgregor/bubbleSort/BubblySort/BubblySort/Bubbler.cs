@@ -23,7 +23,7 @@ namespace BubblySort
 
             if (type == typeof(char))
             {
-                return HandleIntArray(itemsToSort);
+                return HandleCharArray(itemsToSort);
             }
 
             return itemsToSort;
@@ -37,12 +37,49 @@ namespace BubblySort
 
             return ConvertArrayToTypeT<T,int>(sortedArray);
         }
+        
+        private T[] HandleCharArray<T>(T[] paramArray)
+        {
+            var charArray = ConvertArrayToTypeT<char,T>(paramArray);
+
+            var sortedArray = SortChars(charArray);
+
+            return ConvertArrayToTypeT<T,char>(sortedArray);
+        }
 
         private T[] ConvertArrayToTypeT<T, TIn>(TIn[] arrayToConvert)
         {
             var converter = new Converter<TIn, T>(input => (T)Convert.ChangeType(input, typeof(T)));
 
             return Array.ConvertAll(arrayToConvert, converter);
+        }
+        
+        private char[] SortChars(char[] itemsToSort)
+        {
+            var madeChange = false;
+
+            do
+            {
+                madeChange = false;
+                
+                for (var pass = 0; pass < itemsToSort.Length - 1; pass++)
+                {
+                    var comparisonNumber = pass + 1;
+                
+                    var firstNumber = itemsToSort[pass];
+                    var secondNumber = itemsToSort[comparisonNumber];
+
+                    if (firstNumber > secondNumber)
+                    {
+                        itemsToSort[pass] = secondNumber;
+                        itemsToSort[comparisonNumber] = firstNumber;
+                        madeChange = true;
+                    }
+                }
+                
+            } while (madeChange);
+            
+            return itemsToSort;
         }
 
         private int[] SortInts(int[] numbersToSort)
