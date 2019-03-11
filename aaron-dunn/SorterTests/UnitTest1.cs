@@ -8,7 +8,7 @@ namespace Tests
 
 
         [Test]
-        public void WhenBubbleSortCalledReturnsSortedarray()
+        public void WhenBubbleSortCalledReturnsSortedArray()
         {
             BubbleSorter sorter = new BubbleSorter();
             int[] testArr = new int[5] {5, 4, 3, 2, 1};

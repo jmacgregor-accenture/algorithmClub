@@ -44,15 +44,20 @@ namespace Sorter
         {
             if (inputArray[i] < inputArray[i - 1])
             {
-                int tempCurrentIndex = inputArray[i];
-            
-                inputArray[i] = inputArray[i - 1];
-                inputArray[i - 1] = tempCurrentIndex;
+                SwapIndexes(i);
 
                 return true;
             }
 
             return false;
+        }
+
+        private static void SwapIndexes(int i)
+        {
+            int tempCurrentIndex = inputArray[i];
+
+            inputArray[i] = inputArray[i - 1];
+            inputArray[i - 1] = tempCurrentIndex;
         }
     }
 }
