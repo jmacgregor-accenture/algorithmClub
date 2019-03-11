@@ -40,12 +40,23 @@ namespace BubblySort.Tests
         }
         
         [Fact]
-        public void WhenCallingSortWithEightNumbersReturnsInCorrectOrder()
+        public void WhenCallingSortWithFourNumbersReturnsInCorrectOrder()
         {
             var bubbler = new Bubbler();
             var expectedArray = new int[] {1,2,3,4};
 
             var result = bubbler.Sort(4,3,1,2);
+            
+            result.ShouldBe(expectedArray);
+        }
+        
+        [Fact]
+        public void WhenCallingSortWithEightNumbersReturnsInCorrectOrder()
+        {
+            var bubbler = new Bubbler();
+            var expectedArray = new int[] {1,2,3,4,5,6,7,8};
+
+            var result = bubbler.Sort(4,3,5,8,1,2,7,6);
             
             result.ShouldBe(expectedArray);
         }
