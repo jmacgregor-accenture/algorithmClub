@@ -3,11 +3,11 @@ namespace Sorter
     public class BubbleSorter
     {
 
-        private static int[] inputArray;
+        private static int[] _inputArray;
         
         public int[] BubbleSort(int[] arr)
         {
-            inputArray = arr;
+            _inputArray = arr;
             int swaps = 1;
             
             while (swaps > 0)
@@ -15,34 +15,34 @@ namespace Sorter
                 swaps = Sort();
             }
 
-            return inputArray;
+            return _inputArray;
         }
 
         private int Sort()
         {
-            int indexSwaps = 0;
+            int indexSwapCounter = 0;
 
-            for (int i = 1; i < inputArray.Length; i++)
+            for (int i = 1; i < _inputArray.Length; i++)
             {
-                indexSwaps = IncrementSwaps(i, indexSwaps);
+                indexSwapCounter = IncrementSwapCounter(i, indexSwapCounter);
             }
 
-            return indexSwaps;
+            return indexSwapCounter;
         }
 
-        private static int IncrementSwaps(int i, int indexSwaps)
+        private static int IncrementSwapCounter(int i, int indexSwapCounter)
         {
             if (SwapSuccessful(i))
             {
-                indexSwaps++;
+                indexSwapCounter++;
             }
 
-            return indexSwaps;
+            return indexSwapCounter;
         }
 
         private static bool SwapSuccessful(int i)
         {
-            if (inputArray[i] < inputArray[i - 1])
+            if (_inputArray[i] < _inputArray[i - 1])
             {
                 SwapIndexes(i);
 
@@ -54,10 +54,10 @@ namespace Sorter
 
         private static void SwapIndexes(int i)
         {
-            int tempCurrentIndex = inputArray[i];
+            int tempCurrentIndex = _inputArray[i];
 
-            inputArray[i] = inputArray[i - 1];
-            inputArray[i - 1] = tempCurrentIndex;
+            _inputArray[i] = _inputArray[i - 1];
+            _inputArray[i - 1] = tempCurrentIndex;
         }
     }
 }
