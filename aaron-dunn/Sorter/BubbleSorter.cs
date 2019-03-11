@@ -3,42 +3,51 @@ namespace Sorter
     public class BubbleSorter
     {
 
+        private static int[] inputArray;
+        
         public int[] BubbleSort(int[] arr)
         {
+            inputArray = arr;
             int swaps = 1;
             
-            while (swaps != 0)
+            while (swaps > 0)
             {
-                swaps = Sort(arr);
+                swaps = Sort();
             }
 
-            return arr;
+            return inputArray;
         }
 
-        private int Sort(int[] arr)
+        private int Sort()
         {
             int indexSwaps = 0;
 
-            for (int i = 1; i < arr.Length; i++){
-
-                if (SwapSuccessful(arr, i))
-                {
-                    indexSwaps++;
-                }
-
+            for (int i = 1; i < inputArray.Length; i++)
+            {
+                indexSwaps = IncrementSwaps(i, indexSwaps);
             }
 
             return indexSwaps;
         }
 
-        private static bool SwapSuccessful(int[] arr, int i)
+        private static int IncrementSwaps(int i, int indexSwaps)
         {
-            if (arr[i] < arr[i - 1])
+            if (SwapSuccessful(i))
             {
-                int tempCurrentIndex = arr[i];
+                indexSwaps++;
+            }
+
+            return indexSwaps;
+        }
+
+        private static bool SwapSuccessful(int i)
+        {
+            if (inputArray[i] < inputArray[i - 1])
+            {
+                int tempCurrentIndex = inputArray[i];
             
-                arr[i] = arr[i - 1];
-                arr[i - 1] = tempCurrentIndex;
+                inputArray[i] = inputArray[i - 1];
+                inputArray[i - 1] = tempCurrentIndex;
 
                 return true;
             }
