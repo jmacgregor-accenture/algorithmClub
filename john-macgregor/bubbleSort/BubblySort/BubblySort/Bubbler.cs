@@ -2,7 +2,14 @@ namespace BubblySort
 {
     public class Bubbler
     {
-        public int[] Sort(params int[] numbersToSort)
+        public T[] Sort<T>(params T[] itemsToSort)
+        {
+            
+            
+            return itemsToSort;
+        }
+
+        private int[] SortInts(int[] numbersToSort)
         {
             var madeChange = false;
 
