@@ -1,18 +1,48 @@
 
+import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 import static org.junit.Assert.*;
 
 public class BubbleSorterTest {
 
+    static Random random = new Random();
+    static Integer[] testValues;
+    static Integer[] expectedvalues;
+
+    @Before
+    public void setUp() throws Exception {
+        BubbleSorterTest.generateTestValues();
+    }
+
     @Test
     public void returnASortedArrayOfIntegers() {
-        int[] testArray = new int[]{1, 2, 3, 4, 5};
         BubbleSorter bubbleSorter = new BubbleSorter();
-        int[] sortedArray = bubbleSorter.sort(testArray);
-        Arrays.sort(testArray);
-        assertArrayEquals(testArray, sortedArray);
+
+        Integer[] sortedArray = bubbleSorter.sort(testValues);
+        Arrays.sort(expectedvalues);
+
+        assertArrayEquals(expectedvalues, sortedArray);
+    }
+
+
+    private static void generateTestValues(){
+        List<Integer> randomValues = new ArrayList<>();
+        int arrayLength = random.nextInt(100);
+        for(int i = 0; i < arrayLength; i++){
+            randomValues.add(random.nextInt(100));
+        }
+        testValues = new Integer[randomValues.size()];
+        testValues = randomValues.toArray(testValues);
+        expectedvalues = new Integer[testValues.length];
+        for(int i = 0; i < expectedvalues.length; i++){
+            expectedvalues[i] = testValues[i];
+        }
+
     }
 }
