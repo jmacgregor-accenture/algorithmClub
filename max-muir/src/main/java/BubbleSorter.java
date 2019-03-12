@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class BubbleSorter {
 
-    public Integer[] sort(Integer[] intArray) {
+    public static Integer[] sort(Integer[] intArray) {
         boolean unsorted = true;
         while(unsorted){
             unsorted = false;
@@ -17,5 +17,22 @@ public class BubbleSorter {
             }
         }
         return intArray;
+    }
+
+    public static Character[] sort(Character[] charArray) {
+        boolean unsorted = true;
+        while(unsorted){
+            unsorted = false;
+            for(int i = 0; i < charArray.length -1 ; i++){
+                char currentItem = charArray[i];
+                char nextItem = charArray[i+1];
+                if(Character.toLowerCase(currentItem) > Character.toLowerCase(nextItem)){
+                    unsorted = true;
+                    charArray[i] = nextItem;
+                    charArray[i+1] = currentItem;
+                }
+            }
+        }
+        return charArray;
     }
 }

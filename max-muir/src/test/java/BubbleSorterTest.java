@@ -16,20 +16,38 @@ public class BubbleSorterTest {
     static Integer[] expectedvalues;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp()  {
         BubbleSorterTest.generateTestAndExpectedValues();
     }
 
     @Test
-    public void returnASortedArrayOfIntegers() {
-        BubbleSorter bubbleSorter = new BubbleSorter();
+    public void sorterReturnsAnAscendingSortedArrayOfIntegers() {
 
-        Integer[] sortedArray = bubbleSorter.sort(testValues);
+        Integer[] sortedArray = BubbleSorter.sort(testValues);
         Arrays.sort(expectedvalues);
 
         assertArrayEquals(expectedvalues, sortedArray);
     }
 
+    @Test
+    public void sorterReturnsAnAlphabeticallySortedArrayOfChars() {
+        Character[] charTestValues = {'c', 'd', 'b', 'a', 'e', 'f'};
+        Character[] charExpectedValues = {'a', 'b', 'c', 'd', 'e', 'f'};
+
+        Character[] sortedArray = BubbleSorter.sort(charTestValues);
+
+        assertArrayEquals(charExpectedValues, charTestValues );
+    }
+
+    @Test
+    public void sorterReturnsAnAlphabeticallySortedArrayOfCharsOfDifferentCase() {
+        Character[] charTestValues = {'c', 'D', 'B', 'a', 'e', 'f'};
+        Character[] charExpectedValues = {'a', 'B', 'c', 'D', 'e', 'f'};
+
+        Character[] sortedArray = BubbleSorter.sort(charTestValues);
+
+        assertArrayEquals(charExpectedValues, charTestValues );
+    }
 
     private static void generateTestAndExpectedValues(){
         List<Integer> randomValues = new ArrayList<>();
