@@ -12,8 +12,10 @@ import static org.junit.Assert.*;
 public class BubbleSorterTest {
 
     static Random random = new Random();
-    static Integer[] testValues;
-    static Integer[] expectedvalues;
+    static Integer[] intTestValues;
+    static Integer[] intExpectedValues;
+    static Character[] charTestValues;
+    static Character[] charExpectedValues;
 
     @Before
     public void setUp()  {
@@ -23,45 +25,42 @@ public class BubbleSorterTest {
     @Test
     public void sorterReturnsAnAscendingSortedArrayOfIntegers() {
 
-        Integer[] sortedArray = BubbleSorter.sort(testValues);
-        Arrays.sort(expectedvalues);
+        Integer[] sortedArray = BubbleSorter.sort(intTestValues);
+        Arrays.sort(intExpectedValues);
 
-        assertArrayEquals(expectedvalues, sortedArray);
+        assertArrayEquals(intExpectedValues, sortedArray);
     }
 
     @Test
     public void sorterReturnsAnAlphabeticallySortedArrayOfChars() {
-        Character[] charTestValues = {'c', 'd', 'b', 'a', 'e', 'f'};
-        Character[] charExpectedValues = {'a', 'b', 'c', 'd', 'e', 'f'};
 
         Character[] sortedArray = BubbleSorter.sort(charTestValues);
 
-        assertArrayEquals(charExpectedValues, charTestValues );
+        assertArrayEquals(charExpectedValues, sortedArray );
     }
 
-    @Test
-    public void sorterReturnsAnAlphabeticallySortedArrayOfCharsOfDifferentCase() {
-        Character[] charTestValues = {'c', 'D', 'B', 'a', 'e', 'f'};
-        Character[] charExpectedValues = {'a', 'B', 'c', 'D', 'e', 'f'};
-
-        Character[] sortedArray = BubbleSorter.sort(charTestValues);
-
-        assertArrayEquals(charExpectedValues, charTestValues );
-    }
 
     private static void generateTestAndExpectedValues(){
-        List<Integer> randomValues = new ArrayList<>();
+        List<Integer> randomIntValues = new ArrayList<>();
+        List<Character> randomCharValues = new ArrayList<>();
         int arrayLength = random.nextInt(100);
         for(int i = 0; i < arrayLength; i++){
-            randomValues.add(random.nextInt(100));
+            randomIntValues.add(random.nextInt(100));
+            randomCharValues.add((char)(random.nextInt(51) + 'a'));
         }
-        testValues = new Integer[randomValues.size()];
-        testValues = randomValues.toArray(testValues);
-        expectedvalues = new Integer[testValues.length];
-        for(int i = 0; i < expectedvalues.length; i++){
-            expectedvalues[i] = testValues[i];
+        intTestValues = new Integer[randomIntValues.size()];
+        intTestValues = randomIntValues.toArray(intTestValues);
+        charTestValues = new Character[randomIntValues.size()];
+        charTestValues = randomCharValues.toArray(charTestValues);
+        intExpectedValues = new Integer[intTestValues.length];
+        charExpectedValues = new Character[charTestValues.length];
+        for(int i = 0; i < intExpectedValues.length; i++){
+            intExpectedValues[i] = intTestValues[i];
+            charExpectedValues[i] = charTestValues[i];
         }
-        Arrays.sort(expectedvalues);
+
+        Arrays.sort(intExpectedValues);
+        Arrays.sort(charExpectedValues);
 
     }
 }
