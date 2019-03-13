@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public class YearCompare implements Comparator<Movie> {
+public class YearComparator implements Comparator<Movie> {
 
     @Override
     public int compare(Movie m1, Movie m2) {
