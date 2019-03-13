@@ -48,9 +48,9 @@ public class BubbleSortTest {
         list.add(new Movie("Rambo", 1982, 3.4));
         list.add(new Movie("Titanic", 1997, 4));
         list.add(new Movie("Toy Story", 1995, 4.3));
-        YearComparator comparByYear = new YearComparator();
+        YearComparator compareByYear = new YearComparator();
 
-        Collections.sort(list, comparByYear);
+        Collections.sort(list, compareByYear);
 
         assertEquals("Titanic", list.get(0).toString());
     }
