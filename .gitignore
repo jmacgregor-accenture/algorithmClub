@@ -87,16 +87,19 @@ artifacts/
 
 # Sensitive or high-churn files: .idea/dataSources.ids .idea/dataSources.xml .idea/dataSources.local.xml .idea/sqlDataSources.xml .idea/dynamic.xml .idea/uiDesigner.xml
 
-# Gradle: .idea/gradle.xml .idea/libraries
+# Gradle: 
+.idea/gradle.xml 
+.idea/libraries
 
 # Mongo Explorer plugin: .idea/mongoSettings.xml
 
 ## File-based project format:
-# *.iws
+*.iws
 
 ## Plugin-specific files:
 
-# IntelliJ /out/
+# IntelliJ 
+/out/
 
 # mpeltonen/sbt-idea plugin .idea_modules/
 
@@ -107,7 +110,8 @@ artifacts/
 ### JetBrains Patch ###
 # Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
 
-# *.iml
-# modules.xml
-# .idea/misc.xml 
-# *.ipr
+*.iml
+modules.xml
+.idea/misc.xml 
+*.ipr
+
