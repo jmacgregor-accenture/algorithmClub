@@ -6,7 +6,7 @@ namespace RegExpMadness.Parser
     {
         public bool Validate(string stringToValidate)
         {
-            var expressionPattern = @"[\@]";
+            var expressionPattern = @".+?(?=@)";
 
             return Regex.IsMatch(stringToValidate, expressionPattern);
         }
