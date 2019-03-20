@@ -4,9 +4,9 @@ using System.Text.RegularExpressions;
 
 namespace RegExpMadness.Parser
 {
-    public class ParsingTool
+    public class TelephoneNumberValidator
     {
-        public bool ValidatePhoneNumber(string stringToValidate)
+        public bool Validate(string stringToValidate)
         {
             if (stringToValidate.Any(char.IsWhiteSpace))
             {

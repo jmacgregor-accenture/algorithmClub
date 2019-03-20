@@ -5,16 +5,16 @@ using Xunit;
 
 namespace RegExpMadness.Tests
 {
-    public class ParserTests
+    public class TelephoneValidatorTests
     {
         [Theory]
         [InlineData("55555555555")]
         [InlineData("5555555555")]
         public void WhenPassedValidNumberLengthReturnsTrue(string testNumberString)
         {
-            var parser = new ParsingTool();
+            var validator = new TelephoneNumberValidator();
 
-            var result = parser.ValidatePhoneNumber(testNumberString);
+            var result = validator.Validate(testNumberString);
 
             result.ShouldBe(true);
         }
@@ -24,9 +24,9 @@ namespace RegExpMadness.Tests
         [InlineData("5555555")]
         public void WhenPassedNumbersOutsideLengthRangeReturnsFalse(string testNumberString)
         {
-            var parser = new ParsingTool();
+            var validator = new TelephoneNumberValidator();
 
-            var result = parser.ValidatePhoneNumber(testNumberString);
+            var result = validator.Validate(testNumberString);
             
             result.ShouldBe(false);
         }
@@ -38,9 +38,9 @@ namespace RegExpMadness.Tests
         [InlineData("298 555-555-5555")]
         public void WhenPassedValidNumberStringWithDashesReturnsTrue(string testNumberString)
         {
-            var parser = new ParsingTool();
+            var validator = new TelephoneNumberValidator();
 
-            var result = parser.ValidatePhoneNumber(testNumberString);
+            var result = validator.Validate(testNumberString);
             
             result.ShouldBe(true);
         }
@@ -51,9 +51,9 @@ namespace RegExpMadness.Tests
         [InlineData("555a555555")]
         public void WhenPassedStringWithNonDigitsReturnsTrue(string testNumberString)
         {
-            var parser = new ParsingTool();
+            var validator = new TelephoneNumberValidator();
 
-            var result = parser.ValidatePhoneNumber(testNumberString);
+            var result = validator.Validate(testNumberString);
             
             result.ShouldBe(false);
         }
