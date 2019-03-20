@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace RegExpMadness.Parser
@@ -7,25 +8,21 @@ namespace RegExpMadness.Parser
     {
         public bool ValidatePhoneNumber(string stringToValidate)
         {
-            var isMatch = false;
             
             if (stringToValidate.Contains('-').Equals(false))
             {
                 return CheckNoHyphenString(stringToValidate);
             }
-            
-            var expressionPattern = @"^([\d]{3})-([\d]{3})-([\d]{4})$";
-            
-            isMatch = Regex.IsMatch(stringToValidate, expressionPattern);
 
-            if (isMatch)
+            if (stringToValidate.Any(char.IsWhiteSpace))
             {
-                return true;
+                var expressionPattern = @"^([\d]{1,3}) ([\d]{3})-([\d]{3})-([\d]{4})$";
+            
+                return Regex.IsMatch(stringToValidate, expressionPattern);
             }
+                
+            return CheckStringWithHyphen(stringToValidate);
             
-            expressionPattern = @"^([\d]{1,3}) ([\d]{3})-([\d]{3})-([\d]{4})$";
-            
-            return Regex.IsMatch(stringToValidate, expressionPattern);
         }
 
         private bool CheckNoHyphenString(string inputString)
@@ -45,6 +42,13 @@ namespace RegExpMadness.Parser
                     return false;
             }
 
+            return Regex.IsMatch(inputString, expressionPattern);
+        }
+
+        private bool CheckStringWithHyphen(string inputString)
+        {
+            var expressionPattern = @"^([\d]{3})-([\d]{3})-([\d]{4})$";
+            
             return Regex.IsMatch(inputString, expressionPattern);
         }
     }
