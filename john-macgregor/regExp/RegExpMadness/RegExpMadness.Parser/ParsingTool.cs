@@ -7,7 +7,7 @@ namespace RegExpMadness.Parser
     {
         public bool ValidatePhoneNumber(string stringToValidate)
         {
-            var expressionPattern = @"[\d]";
+            var expressionPattern = @"^[\d]{10}$";
 
             return Regex.IsMatch(stringToValidate, expressionPattern);
         }
