@@ -31,10 +31,13 @@ namespace RegExpMadness.Tests
             result.ShouldBe(false);
         }
 
-        [Fact]
-        public void WhenPassedValidNumberStringWithDashesReturnsTrue()
+        [Theory]
+        [InlineData("555-555-5555")]
+        [InlineData("1 555-555-5555")]
+        [InlineData("24 555-555-5555")]
+        [InlineData("298 555-555-5555")]
+        public void WhenPassedValidNumberStringWithDashesReturnsTrue(string testNumberString)
         {
-            var testNumberString = "555-555-5555";
             var parser = new ParsingTool();
 
             var result = parser.ValidatePhoneNumber(testNumberString);

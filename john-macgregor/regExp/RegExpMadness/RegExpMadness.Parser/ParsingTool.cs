@@ -13,7 +13,7 @@ namespace RegExpMadness.Parser
 
             if (isMatch)
             {
-                return isMatch;
+                return true;
             }
 
             expressionPattern = @"^[\d]{11}$";
@@ -27,7 +27,16 @@ namespace RegExpMadness.Parser
 
             expressionPattern = @"^([\d]{3})-([\d]{3})-([\d]{4})$";
             
-            return isMatch = Regex.IsMatch(stringToValidate, expressionPattern);
+            isMatch = Regex.IsMatch(stringToValidate, expressionPattern);
+
+            if (isMatch)
+            {
+                return true;
+            }
+            
+            expressionPattern = @"^([\d]{1,3}) ([\d]{3})-([\d]{3})-([\d]{4})$";
+            
+            return Regex.IsMatch(stringToValidate, expressionPattern);
         }
     }
 }
