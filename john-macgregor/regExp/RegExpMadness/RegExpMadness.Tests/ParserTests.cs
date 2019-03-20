@@ -8,7 +8,7 @@ namespace RegExpMadness.Tests
     public class ParserTests
     {
         [Theory]
-        //[InlineData("55555555555")]
+        [InlineData("55555555555")]
         [InlineData("5555555555")]
         public void WhenPassedValidNumberLengthReturnsTrue(string testNumberString)
         {
