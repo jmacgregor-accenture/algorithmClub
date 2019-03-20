@@ -18,10 +18,11 @@ namespace RegExpMadness.Tests
             result.ShouldBe(true);
         }
 
-        [Fact]
-        public void WhenPassedElevenNumbersReturnsFalse()
+        [Theory]
+        [InlineData("55555555555")]
+        [InlineData("5555555")]
+        public void WhenPassedNumbersOutsideLengthRangeReturnsFalse(string testNumberString)
         {
-            var testNumberString = "55555555555";
             var parser = new ParsingTool();
 
             var result = parser.ValidatePhoneNumber(testNumberString);
