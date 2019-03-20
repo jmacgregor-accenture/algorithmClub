@@ -27,5 +27,16 @@ namespace RegExpMadness.Tests
             
             result.ShouldBe(false);
         }
+
+        [Fact]
+        public void WhenValidatingMissingDomainReturnsFalse()
+        {
+            var testString = "john@";
+            var validator = new EmailValidator();
+
+            var result = validator.Validate(testString);
+            
+            result.ShouldBe(false);
+        }
     }
 }
