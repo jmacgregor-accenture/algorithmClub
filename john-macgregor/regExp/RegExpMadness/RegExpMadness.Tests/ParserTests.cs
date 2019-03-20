@@ -44,5 +44,18 @@ namespace RegExpMadness.Tests
             
             result.ShouldBe(true);
         }
+
+        [Theory]
+        [InlineData("aaaaaaaaaa")]
+        [InlineData("555-5a5-5555")]
+        [InlineData("555a555555")]
+        public void WhenPassedStringWithNonDigitsReturnsTrue(string testNumberString)
+        {
+            var parser = new ParsingTool();
+
+            var result = parser.ValidatePhoneNumber(testNumberString);
+            
+            result.ShouldBe(false);
+        }
     }
 }
