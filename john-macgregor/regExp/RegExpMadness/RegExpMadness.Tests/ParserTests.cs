@@ -30,5 +30,16 @@ namespace RegExpMadness.Tests
             
             result.ShouldBe(false);
         }
+
+        [Fact]
+        public void WhenPassedValidNumberStringWithDashesReturnsTrue()
+        {
+            var testNumberString = "555-555-5555";
+            var parser = new ParsingTool();
+
+            var result = parser.ValidatePhoneNumber(testNumberString);
+            
+            result.ShouldBe(true);
+        }
     }
 }

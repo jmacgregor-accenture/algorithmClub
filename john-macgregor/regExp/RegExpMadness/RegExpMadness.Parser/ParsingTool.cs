@@ -15,14 +15,19 @@ namespace RegExpMadness.Parser
             {
                 return isMatch;
             }
-            else
-            {
-                expressionPattern = @"^[\d]{11}$";
-                
-                return Regex.IsMatch(stringToValidate, expressionPattern);
-            }
-            
 
+            expressionPattern = @"^[\d]{11}$";
+
+            isMatch = Regex.IsMatch(stringToValidate, expressionPattern);
+
+            if (isMatch)
+            {
+                return true;
+            }
+
+            expressionPattern = @"^([\d]{3})-([\d]{3})-([\d]{4})$";
+            
+            return isMatch = Regex.IsMatch(stringToValidate, expressionPattern);
         }
     }
 }
