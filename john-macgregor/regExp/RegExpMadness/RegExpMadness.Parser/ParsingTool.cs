@@ -8,52 +8,45 @@ namespace RegExpMadness.Parser
     {
         public bool ValidatePhoneNumber(string stringToValidate)
         {
-            
-            if (stringToValidate.Contains('-').Equals(false))
-            {
-                return CheckStringNoHyphen(stringToValidate);
-            }
-
             if (stringToValidate.Any(char.IsWhiteSpace))
             {
                 return CheckStringCountryCode(stringToValidate);
             }
-                
-            return CheckStringWithHyphen(stringToValidate);
-            
+
+            if (stringToValidate.Contains('-'))
+            {
+                return CheckStringWithHyphen(stringToValidate);
+            }
+
+            return CheckStringNoHyphen(stringToValidate);
         }
 
         private bool CheckStringNoHyphen(string inputString)
         {
-            var isMatch = false;
-            var expressionPattern = string.Empty;
             
             switch (inputString.Length)
             {
                 case 10:
-                    expressionPattern = @"^[\d]{10}$";
-                    break;
+                    return Regex.IsMatch(inputString, @"^[\d]{10}$");
                 case 11:
-                    expressionPattern = @"^[\d]{11}$";
-                    break;
+                    return Regex.IsMatch(inputString, @"^[\d]{11}$");
                 default:
                     return false;
             }
-
-            return Regex.IsMatch(inputString, expressionPattern);
+            
         }
 
         private bool CheckStringWithHyphen(string inputString)
         {
             var expressionPattern = @"^([\d]{3})-([\d]{3})-([\d]{4})$";
-            
+
             return Regex.IsMatch(inputString, expressionPattern);
         }
 
         private bool CheckStringCountryCode(string inputString)
         {
             var expressionPattern = @"^([\d]{1,3}) ([\d]{3})-([\d]{3})-([\d]{4})$";
-            
+
             return Regex.IsMatch(inputString, expressionPattern);
         }
     }
