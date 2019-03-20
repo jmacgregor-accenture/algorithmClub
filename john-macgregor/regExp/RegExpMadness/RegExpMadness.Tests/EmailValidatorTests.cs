@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using RegExpMadness.Parser;
 using Shouldly;
 using Xunit;
@@ -32,6 +33,20 @@ namespace RegExpMadness.Tests
         public void WhenValidatingMissingDomainReturnsFalse()
         {
             var testString = "john@";
+            var validator = new EmailValidator();
+
+            var result = validator.Validate(testString);
+            
+            result.ShouldBe(false);
+        }
+
+        [Theory]
+        [InlineData("john@gmail")]
+        [InlineData("john@gmail.")]
+        [InlineData("john@gmail.co")]
+        [InlineData("john@gmail.comm")]
+        public void WhenValidatingMissingTopLevelDomainReturnsFalse(string testString)
+        {
             var validator = new EmailValidator();
 
             var result = validator.Validate(testString);
