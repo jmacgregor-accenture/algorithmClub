@@ -7,10 +7,11 @@ namespace RegExpMadness.Tests
 {
     public class ParserTests
     {
-        [Fact]
-        public void WhenPassedTenNumberReturnsTrue()
+        [Theory]
+        //[InlineData("55555555555")]
+        [InlineData("5555555555")]
+        public void WhenPassedValidNumberLengthReturnsTrue(string testNumberString)
         {
-            var testNumberString = "5555555555";
             var parser = new ParsingTool();
 
             var result = parser.ValidatePhoneNumber(testNumberString);
@@ -19,7 +20,7 @@ namespace RegExpMadness.Tests
         }
 
         [Theory]
-        [InlineData("55555555555")]
+        [InlineData("555555555555")]
         [InlineData("5555555")]
         public void WhenPassedNumbersOutsideLengthRangeReturnsFalse(string testNumberString)
         {
