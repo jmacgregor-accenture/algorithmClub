@@ -11,21 +11,19 @@ namespace RegExpMadness.Parser
             
             if (stringToValidate.Contains('-').Equals(false))
             {
-                return CheckNoHyphenString(stringToValidate);
+                return CheckStringNoHyphen(stringToValidate);
             }
 
             if (stringToValidate.Any(char.IsWhiteSpace))
             {
-                var expressionPattern = @"^([\d]{1,3}) ([\d]{3})-([\d]{3})-([\d]{4})$";
-            
-                return Regex.IsMatch(stringToValidate, expressionPattern);
+                return CheckStringCountryCode(stringToValidate);
             }
                 
             return CheckStringWithHyphen(stringToValidate);
             
         }
 
-        private bool CheckNoHyphenString(string inputString)
+        private bool CheckStringNoHyphen(string inputString)
         {
             var isMatch = false;
             var expressionPattern = string.Empty;
@@ -48,6 +46,13 @@ namespace RegExpMadness.Parser
         private bool CheckStringWithHyphen(string inputString)
         {
             var expressionPattern = @"^([\d]{3})-([\d]{3})-([\d]{4})$";
+            
+            return Regex.IsMatch(inputString, expressionPattern);
+        }
+
+        private bool CheckStringCountryCode(string inputString)
+        {
+            var expressionPattern = @"^([\d]{1,3}) ([\d]{3})-([\d]{3})-([\d]{4})$";
             
             return Regex.IsMatch(inputString, expressionPattern);
         }
