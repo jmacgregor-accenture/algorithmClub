@@ -6,7 +6,7 @@ namespace RegExpMadness.Parser
     {
         public bool Validate(string stringToValidate)
         {
-            var expressionPattern = @"^(.+?)[\@](.+?)(\.[a-z]{3})$";
+            var expressionPattern = @"^(.+?)([\@])(.+?)(\.[a-z]{3})$";
 
             return Regex.IsMatch(stringToValidate, expressionPattern);
         }

@@ -53,5 +53,18 @@ namespace RegExpMadness.Tests
             
             result.ShouldBe(false);
         }
+
+        [Theory]
+        [InlineData("j@hn@gmail.com")]
+        [InlineData("john@gm@il.com")]
+        [InlineData("john@gmail.c@m")]
+        public void WhenValidatingMoreThanOneAtSignReturnsFalse(string testString)
+        {
+            var validator = new EmailValidator();
+
+            var result = validator.Validate(testString);
+            
+            result.ShouldBe(false);
+        }
     }
 }
