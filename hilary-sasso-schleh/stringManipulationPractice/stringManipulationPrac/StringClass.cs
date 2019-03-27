@@ -26,10 +26,11 @@ namespace stringManipulationPracTests
         public string SeparateCharacters(string input)
         {
             string returnString = string.Empty;
+            int inputLength = CountLength(input);
 
-            for (var i = 0; i < CountLength(input); i++)
+            for (var i = 0; i < inputLength; i++)
             {
-                if (i == CountLength(input) - 1)
+                if (i == inputLength - 1)
                 {
                     returnString += input[i];
                 }
