@@ -92,6 +92,28 @@ namespace stringManipulationPracTests
             result.Count.ShouldBe(2);
             result.Last().ShouldBe("world");
         }
+
+        [Fact]
+        public void CompareStringsReturnsTrueIfStringsAreIdentical()
+        {
+            string firstString = "Hi There";
+            string secondString = "Hi There";
+
+            bool result = stringClass.CompareStrings(firstString, secondString);
+            
+            result.ShouldBeTrue();
+        }
+
+        [Fact]
+        public void CompareStringsReturnsFalseIfStringsAreNotIdentical()
+        {
+            string firstString = "hi There";
+            string secondString = "Hi There";
+
+            bool result = stringClass.CompareStrings(firstString, secondString);
+            
+            result.ShouldBeFalse();
+        }
     }
 }
 

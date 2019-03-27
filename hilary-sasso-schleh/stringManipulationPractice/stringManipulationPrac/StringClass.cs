@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.Xml;
+using static System.Text.ASCIIEncoding;
 
 namespace stringManipulationPracTests
 {
@@ -108,6 +110,25 @@ namespace stringManipulationPracTests
             var splitString = SplitString(input);
 
             return splitString.Count;
+        }
+
+        public bool CompareStrings(string firstString, string secondString)
+        {
+            
+            int firstSum = 0;
+            int secondSum = 0;
+
+            foreach (char space in firstString)
+            {
+                firstSum += space;
+            }
+
+            foreach (char space in secondString)
+            {
+                secondSum += space;
+            }
+
+            return (firstSum == secondSum);
         }
     }
 }
