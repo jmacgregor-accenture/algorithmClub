@@ -10,5 +10,17 @@ namespace stringManipulationPracTests
             
             return defaultGreeting + input;
         }
+
+        public int CountLength(string input)
+        {
+            int count = 0;
+
+            foreach (var letter in input)
+            {
+                count++;
+            }
+
+            return count;
+        }
     }
 }

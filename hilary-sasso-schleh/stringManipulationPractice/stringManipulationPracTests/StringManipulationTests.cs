@@ -17,6 +17,18 @@ namespace stringManipulationPracTests
             
             result.ShouldBe( defaultGreeting + "hello");
         }
+
+        [Fact]
+        public void CountLengthReturnsNumberOfCharactersOfInputString()
+        {
+            string input = "parrot";
+            
+            StringClass stringClass = new StringClass();
+
+            int result = stringClass.CountLength(input);
+
+            result.ShouldBe(input.Length);
+        }
     }
 }
 
