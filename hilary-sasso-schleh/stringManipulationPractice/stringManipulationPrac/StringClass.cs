@@ -6,8 +6,9 @@ namespace stringManipulationPracTests
     {
         public string PrintString(string input)
         {
-            string outPut = "The String Entered Is: " + input;
-            return outPut;
+            string defaultGreeting = "The String Entered Is: ";
+            
+            return defaultGreeting + input;
         }
     }
 }
