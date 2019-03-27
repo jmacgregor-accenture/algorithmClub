@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 using Shouldly;
 
@@ -59,8 +61,27 @@ namespace stringManipulationPracTests
 
             endResult.ShouldBe("y v r u t y s p o t");
         }
-        
-       
+
+        [Fact]
+        public void CountWordsWithOneWordReturnsNumberOfWordsInInput()
+        {
+            string input = "Hello";
+
+            List<string> result = stringClass.CountWords(input);
+            
+            result.Count.ShouldBe(1);
+            result.First().ShouldBe("Hello");
+        }
+
+        [Fact]
+        public void CountWordsWithTwoWordsReturnsNumberOfWords()
+        {
+            string input = "Hello world";
+
+            List<string> result = stringClass.CountWords(input);
+            
+            result.Count.ShouldBe(2);
+        }
     }
 }
 

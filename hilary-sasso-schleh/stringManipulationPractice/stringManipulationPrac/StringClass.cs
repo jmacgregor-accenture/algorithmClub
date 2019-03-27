@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Xml;
 
 namespace stringManipulationPracTests
@@ -60,6 +61,47 @@ namespace stringManipulationPracTests
                 }
             }
             return returnString;
+        }
+
+        public List<string> CountWords(string input)
+        {
+            List<string> wordsInString = new List<string>();
+            List<int> spaceIndices = new List<int>();
+
+            var space = 0;
+            var searchStart = 0;
+
+            while (space != -1)
+            {
+                space = input.IndexOf(' ', searchStart);
+                spaceIndices.Add(space);
+                searchStart = space + 1;
+            }
+
+            var subStringStart = 0;
+            
+            for (var i = 0; i < spaceIndices.Count; i++)
+            {
+                var spaceIndex = spaceIndices[i];
+
+                if (i == 0 && spaceIndex == -1)
+                {
+                    wordsInString.Add(input);
+                }
+                else if (i == spaceIndices.Count - 1)
+                {
+                    wordsInString.Add(input.Substring(subStringStart, input.Length - subStringStart));
+                }
+                else
+                {
+                    wordsInString.Add(input.Substring(subStringStart, spaceIndex));
+                    subStringStart = spaceIndex + 1;
+                }
+                
+            }
+
+            return wordsInString;
+            
         }
     }
 }
