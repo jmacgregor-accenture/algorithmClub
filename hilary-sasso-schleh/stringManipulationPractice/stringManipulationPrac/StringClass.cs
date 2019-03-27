@@ -22,5 +22,24 @@ namespace stringManipulationPracTests
 
             return count;
         }
+
+        public string SeparateCharacters(string input)
+        {
+            string returnString = string.Empty;
+
+            for (var i = 0; i < CountLength(input); i++)
+            {
+                if (i == CountLength(input) - 1)
+                {
+                    returnString += input[i];
+                }
+                else
+                {
+                    returnString += input[i] + " ";
+                }
+            }
+
+            return returnString;
+        }
     }
 }

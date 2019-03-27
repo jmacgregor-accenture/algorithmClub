@@ -29,6 +29,18 @@ namespace stringManipulationPracTests
 
             result.ShouldBe(input.Length);
         }
+
+        [Fact]
+        public void SeparateCharactersReturnsExpandedString()
+        {
+            string input = "lizard";
+            
+            StringClass stringClass = new StringClass();
+
+            string result = stringClass.SeparateCharacters(input);
+            
+            result.ShouldBe("l i z a r d");
+        }
     }
 }
 
