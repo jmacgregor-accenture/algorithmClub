@@ -56,11 +56,10 @@ namespace stringManipulationPracTests
                 }
                 else
                 {
-                    returnString += input[i] + " ";
+                    returnString += input[i];
                 }
             }
             return returnString;
-
         }
     }
 }

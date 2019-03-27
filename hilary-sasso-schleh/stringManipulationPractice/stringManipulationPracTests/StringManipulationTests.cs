@@ -6,12 +6,13 @@ namespace stringManipulationPracTests
 {
     public class StringManipulationTests
     {
+        private StringClass stringClass = new StringClass();
+        
         [Fact]
         public void PrintStringReturnsInputStringPlusFormatting()
         {
             string input = "hello";
             string defaultGreeting = "The String Entered Is: ";
-            StringClass stringClass = new StringClass();
 
             string result = stringClass.PrintString(input);
             
@@ -22,9 +23,7 @@ namespace stringManipulationPracTests
         public void CountLengthReturnsNumberOfCharactersOfInputString()
         {
             string input = "parrot";
-            
-            StringClass stringClass = new StringClass();
-
+      
             int result = stringClass.CountLength(input);
 
             result.ShouldBe(input.Length);
@@ -34,8 +33,6 @@ namespace stringManipulationPracTests
         public void SeparateCharactersReturnsExpandedString()
         {
             string input = "lizard";
-            
-            StringClass stringClass = new StringClass();
 
             string result = stringClass.SeparateCharacters(input);
             
@@ -46,13 +43,24 @@ namespace stringManipulationPracTests
         public void ReverseCharactersReturnsReversedString()
         {
             string input = "twister";
-            
-            StringClass stringClass = new StringClass();
 
             string result = stringClass.ReverseCharacters(input);
             
-            result.ShouldBe("r e t s i w t");
+            result.ShouldBe("retsiwt");
         }
+
+        [Fact]
+        public void WeDecideToReverseAndExpandReturnString()
+        {
+            string input = "topsyturvy";
+
+            string reversed = stringClass.ReverseCharacters(input);
+            string endResult = stringClass.SeparateCharacters(reversed);
+
+            endResult.ShouldBe("y v r u t y s p o t");
+        }
+        
+       
     }
 }
 
