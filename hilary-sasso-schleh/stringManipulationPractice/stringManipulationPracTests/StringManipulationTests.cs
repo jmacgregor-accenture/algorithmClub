@@ -67,20 +67,30 @@ namespace stringManipulationPracTests
         {
             string input = "Hello";
 
-            List<string> result = stringClass.CountWords(input);
+            int result = stringClass.CountWords(input);
             
-            result.Count.ShouldBe(1);
-            result.First().ShouldBe("Hello");
+            result.ShouldBe(1);
         }
 
         [Fact]
-        public void CountWordsWithTwoWordsReturnsNumberOfWords()
+        public void CountWordsWithTwoWordsReturnsTwo()
         {
             string input = "Hello world";
 
-            List<string> result = stringClass.CountWords(input);
+            int result = stringClass.CountWords(input);
+            
+            result.ShouldBe(2);
+        }
+
+        [Fact]
+        public void SplitStringWithSpaceReturnsTwoWords()
+        {
+            string input = "Hello world";
+
+            List<string> result = stringClass.SplitString(input);
             
             result.Count.ShouldBe(2);
+            result.Last().ShouldBe("world");
         }
     }
 }

@@ -63,7 +63,7 @@ namespace stringManipulationPracTests
             return returnString;
         }
 
-        public List<string> CountWords(string input)
+        public List<string> SplitString(string input, char splitCharacter = ' ')
         {
             List<string> wordsInString = new List<string>();
             List<int> spaceIndices = new List<int>();
@@ -73,7 +73,7 @@ namespace stringManipulationPracTests
 
             while (space != -1)
             {
-                space = input.IndexOf(' ', searchStart);
+                space = input.IndexOf(splitCharacter, searchStart);
                 spaceIndices.Add(space);
                 searchStart = space + 1;
             }
@@ -101,7 +101,13 @@ namespace stringManipulationPracTests
             }
 
             return wordsInString;
-            
+        }
+
+        public int CountWords(string input)
+        {
+            var splitString = SplitString(input);
+
+            return splitString.Count;
         }
     }
 }
