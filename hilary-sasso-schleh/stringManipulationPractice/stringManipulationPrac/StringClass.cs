@@ -42,5 +42,25 @@ namespace stringManipulationPracTests
 
             return returnString;
         }
+
+        public string ReverseCharacters(string input)
+        {
+            string returnString = string.Empty;
+            int inputLength = CountLength(input);
+
+            for (var i = inputLength - 1; i >= 0; i--)
+            {
+                if (i == 0)
+                {
+                    returnString += input[i];
+                }
+                else
+                {
+                    returnString += input[i] + " ";
+                }
+            }
+            return returnString;
+
+        }
     }
 }

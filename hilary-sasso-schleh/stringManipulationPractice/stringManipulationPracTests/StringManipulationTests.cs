@@ -41,6 +41,18 @@ namespace stringManipulationPracTests
             
             result.ShouldBe("l i z a r d");
         }
+
+        [Fact]
+        public void ReverseCharactersReturnsReversedString()
+        {
+            string input = "twister";
+            
+            StringClass stringClass = new StringClass();
+
+            string result = stringClass.ReverseCharacters(input);
+            
+            result.ShouldBe("r e t s i w t");
+        }
     }
 }
 
