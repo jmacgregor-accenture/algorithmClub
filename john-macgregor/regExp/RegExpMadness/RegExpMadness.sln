@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegExpMadness.Parser", "RegExpMadness.Parser\RegExpMadness.Parser.csproj", "{76496B18-9B35-4010-97D1-090A436282E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegExpMadness.Tests", "RegExpMadness.Tests\RegExpMadness.Tests.csproj", "{6DE0265D-C1A2-419E-B995-81DA256F9E7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76496B18-9B35-4010-97D1-090A436282E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76496B18-9B35-4010-97D1-090A436282E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76496B18-9B35-4010-97D1-090A436282E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76496B18-9B35-4010-97D1-090A436282E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DE0265D-C1A2-419E-B995-81DA256F9E7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DE0265D-C1A2-419E-B995-81DA256F9E7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DE0265D-C1A2-419E-B995-81DA256F9E7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DE0265D-C1A2-419E-B995-81DA256F9E7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
