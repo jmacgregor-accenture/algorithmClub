@@ -1,6 +1,3 @@
-
-**/.DS_Store/*
-**/.pdb/*
 *.user
 *.cfg
 **/bin/*
